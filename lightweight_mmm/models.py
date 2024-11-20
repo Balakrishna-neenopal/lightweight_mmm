@@ -436,4 +436,4 @@ def media_mix_model(
   mu = numpyro.deterministic(name="mu", value=prediction)
 
   numpyro.sample(
-      name="target", fn=dist.Normal(loc=mu, scale=sigma), obs=target_data)
+      name="target", fn=dist.TruncatedNormal(low=0,  loc=mu, scale=sigma), obs=target_data)
